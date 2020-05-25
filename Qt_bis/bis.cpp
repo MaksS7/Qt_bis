@@ -1,3 +1,4 @@
+/*Версия от 25.05.2020*/
 #include "bis.h"
 #include "ui_bis.h"
 #include <iostream>
@@ -142,7 +143,7 @@ void bis::on_btnRSA_Open_A_clicked()
 {
     qDebug()<<"*--------------------A--------------------*";
     rsaA = new Encrypt();
-    QVector<uintmax_t> temp = rsaA->getOpenKey();
+    QVector<int64_t> temp = rsaA->getOpenKey();
     QString str = QString::number(temp[0]) + ";" + QString::number(temp[1]);
     ui->lineRSA_Open_A->setText(str);
     ui->btnRSA_Open_B->setEnabled(true);
@@ -156,10 +157,10 @@ void bis::on_btnRSA_Open_B_clicked()
 //    QVector<uintmax_t> temp = rsaB->getOpenKey();
 //    QString str = QString::number(temp[0]) + ";" + QString::number(temp[1]);
 //    ui->lineRSA_Open_B->setText(str);
-    QVector<uintmax_t> temp = rsaA->getOpenKey();
+    QVector<int64_t> temp = rsaA->getOpenKey();
     qDebug()<<"Open Key A"<<temp;
     QString text = ui->lineRSA_Source->text();
-    QString cript = rsaB->cript(text, temp[0]);  //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! предовать полноый ключ
+    QString cript = rsaB->cript(text, temp[0], temp[1]);  //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! предовать полноый ключ
     ui->lineRSA_Cripted->clear();
     ui->lineRSA_Cripted->setText(cript);
     ui->btnRSA_Decript_A->setEnabled(true);

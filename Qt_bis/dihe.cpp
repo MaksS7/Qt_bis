@@ -1,3 +1,4 @@
+/*Версия от 25.05.2020*/
 #include "dihe.h"
 #include <QRandomGenerator>
 #include <cmath>

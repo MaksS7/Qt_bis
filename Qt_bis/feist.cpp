@@ -1,3 +1,4 @@
+/*Версия от 25.05.2020*/
 #include "feist.h"
 #include <QDebug>
 #include <iostream>
